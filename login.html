@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Little Dreamers Daycare</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* PAGE LAYOUT */
+
+body{
+height:100vh;
+display:flex;
+}
+
+/* LEFT SIDE */
+
+.left{
+
+flex:1;
+
+background:
+linear-gradient(rgba(40,95,110,0.7),rgba(40,95,110,0.7)),
+url("https://images.unsplash.com/photo-1588072432836-e10032774350") center/cover no-repeat;
+
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:60px;
+}
+
+.left i{
+font-size:45px;
+margin-bottom:20px;
+color:#ffd166;
+}
+
+.left h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.left p{
+max-width:420px;
+opacity:0.9;
+line-height:1.6;
+}
+
+/* RIGHT SIDE */
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f6fbfb;
+}
+
+/* LOGIN CARD */
+
+.card{
+
+width:380px;
+background:white;
+padding:35px;
+border-radius:16px;
+box-shadow:0 12px 35px rgba(0,0,0,0.15);
+
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.header i{
+font-size:30px;
+color:#2a9d8f;
+margin-bottom:10px;
+}
+
+.header h2{
+color:#264653;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+font-size:13px;
+color:#555;
+}
+
+.input-box{
+position:relative;
+}
+
+.input-box input{
+width:100%;
+padding:11px 40px;
+margin-top:6px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
+}
+
+.input-box i{
+position:absolute;
+left:12px;
+top:18px;
+color:#888;
+}
+
+.input-box .eye{
+left:auto;
+right:12px;
+cursor:pointer;
+}
+
+/* OPTIONS */
+
+.options{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+margin-bottom:20px;
+}
+
+.options a{
+text-decoration:none;
+color:#2a9d8f;
+font-weight:500;
+}
+
+/* BUTTON */
+
+button{
+
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#2a9d8f;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+button:hover{
+background:#21867a;
+}
+
+/* DEMO TEXT */
+
+.demo{
+text-align:center;
+font-size:12px;
+color:#888;
+margin-top:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+body{
+flex-direction:column;
+}
+
+.left{
+display:none;
+}
+
+.right{
+flex:1;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LEFT SIDE -->
+
+<div class="left">
+
+<i class="fa-solid fa-school"></i>
+
+<h1>Little Dreamers Daycare</h1>
+
+<p>
+A safe and joyful place where children learn, explore, and grow.
+Manage children, staff, and daily activities through a simple management system.
+</p>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="right">
+
+<div class="card">
+
+<div class="header">
+<i class="fa-solid fa-user-shield"></i>
+<h2>Management Login</h2>
+</div>
+
+<div class="input-group">
+
+<label>Email</label>
+
+<div class="input-box">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" placeholder="your.email@example.com">
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>Password</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+<input type="password" id="password" placeholder="••••••••">
+
+<i class="fa-solid fa-eye eye" onclick="togglePassword()"></i>
+
+</div>
+
+</div>
+
+<div class="options">
+
+<label><input type="checkbox"> Remember me</label>
+
+<a href="#">Forgot password?</a>
+
+</div>
+
+<button onclick="login()">Sign In</button>
+
+<div class="demo">
+Demo credentials: Use any email/password combination
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function togglePassword(){
+
+let pass=document.getElementById("password");
+
+let icon=document.querySelector(".eye");
+
+if(pass.type==="password"){
+
+pass.type="text";
+
+icon.classList.replace("fa-eye","fa-eye-slash");
+
+}else{
+
+pass.type="password";
+
+icon.classList.replace("fa-eye-slash","fa-eye");
+
+}
+
+}
+
+function login(){
+
+alert("Login Successful (Demo)");
+
+}
+
+</script>
+
+</body>
+</html>
