@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Create Daycare Account</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+}
+
+/* LEFT SIDE */
+
+.left{
+flex:1;
+
+background:
+linear-gradient(rgba(40,95,110,0.7),rgba(40,95,110,0.7)),
+url("https://images.unsplash.com/photo-1588072432836-e10032774350") center/cover no-repeat;
+
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:60px;
+}
+
+.left i{
+font-size:45px;
+margin-bottom:20px;
+color:#ffd166;
+}
+
+.left h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.left p{
+max-width:420px;
+opacity:0.9;
+line-height:1.6;
+}
+
+/* RIGHT SIDE */
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f6fbfb;
+}
+
+/* CARD */
+
+.card{
+width:400px;
+background:white;
+padding:30px;
+border-radius:16px;
+box-shadow:0 12px 35px rgba(0,0,0,0.15);
+}
+
+/* HEADER */
+
+.header{
+text-align:center;
+margin-bottom:20px;
+}
+
+.header i{
+font-size:28px;
+color:#2a9d8f;
+margin-bottom:10px;
+}
+
+.header h2{
+color:#264653;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+margin-bottom:14px;
+}
+
+.input-group label{
+font-size:13px;
+color:#555;
+}
+
+/* INPUT BOX */
+
+.input-box{
+position:relative;
+}
+
+.input-box input{
+width:100%;
+padding:8px 36px;
+margin-top:6px;
+border-radius:8px;
+border:1px solid #ddd;
+font-size:14px;
+height:36px;
+}
+
+/* ICON */
+
+.input-box i{
+position:absolute;
+left:12px;
+top:11px;
+color:#888;
+}
+
+.eye{
+left:auto;
+right:12px;
+cursor:pointer;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#2a9d8f;
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:0.3s;
+margin-top:10px;
+}
+
+button:hover{
+background:#21867a;
+}
+
+/* TEXT */
+
+.demo{
+text-align:center;
+font-size:12px;
+color:#888;
+margin-top:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+body{
+flex-direction:column;
+}
+
+.left{
+display:none;
+}
+
+.right{
+flex:1;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LEFT SIDE -->
+
+<div class="left">
+
+<i class="fa-solid fa-school"></i>
+
+<h1>Little Dreamers Daycare</h1>
+
+<p>
+Register your daycare center and start managing children,
+staff, schedules and daily activities in one simple platform.
+</p>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="right">
+
+<div class="card">
+
+<div class="header">
+<i class="fa-solid fa-user-plus"></i>
+<h2>Create Daycare Account</h2>
+</div>
+
+
+<!-- DAYCARE NAME -->
+
+<div class="input-group">
+<label>Daycare Name *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-building"></i>
+<input type="text" id="daycare" placeholder="Enter daycare name" required>
+</div>
+
+</div>
+
+
+<!-- LOCATION -->
+
+<div class="input-group">
+<label>Location *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-location-dot"></i>
+<input type="text" id="location" placeholder="City / Address" required>
+</div>
+
+</div>
+
+
+<!-- LICENSE -->
+
+<div class="input-group">
+<label>License Number *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-id-card"></i>
+<input type="text" id="license" placeholder="Enter license number" required>
+</div>
+
+</div>
+
+
+<!-- EMAIL -->
+
+<div class="input-group">
+<label>Email *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-envelope"></i>
+<input type="email" id="email" placeholder="your.email@example.com" required>
+</div>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="input-group">
+<label>Password *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
+<input type="password" id="password" placeholder="Create password" required>
+<i class="fa-solid fa-eye eye" onclick="togglePassword('password',this)"></i>
+</div>
+
+</div>
+
+
+<!-- CONFIRM PASSWORD -->
+
+<div class="input-group">
+<label>Confirm Password *</label>
+
+<div class="input-box">
+<i class="fa-solid fa-lock"></i>
+<input type="password" id="confirmPassword" placeholder="Confirm password" required>
+<i class="fa-solid fa-eye eye" onclick="togglePassword('confirmPassword',this)"></i>
+</div>
+
+</div>
+
+
+<button onclick="createAccount()">Create Account</button>
+
+<div class="demo">
+All fields are required to register a daycare
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+function togglePassword(id,icon){
+
+let pass=document.getElementById(id);
+
+if(pass.type==="password"){
+pass.type="text";
+icon.classList.replace("fa-eye","fa-eye-slash");
+}else{
+pass.type="password";
+icon.classList.replace("fa-eye-slash","fa-eye");
+}
+
+}
+
+function createAccount(){
+
+let daycare=document.getElementById("daycare").value;
+let location=document.getElementById("location").value;
+let license=document.getElementById("license").value;
+let email=document.getElementById("email").value;
+let password=document.getElementById("password").value;
+let confirm=document.getElementById("confirmPassword").value;
+
+if(!daycare || !location || !license || !email || !password || !confirm){
+
+alert("Please fill all required fields");
+return;
+
+}
+
+if(password !== confirm){
+
+alert("Passwords do not match");
+return;
+
+}
+
+alert("Daycare account created successfully!");
+
+}
+
+</script>
+
+</body>
+</html>
